@@ -27,6 +27,8 @@ app.post('/', function(req, res) {
     
     var url = xml.createURL(market, product, entries);
 
+    console.log("App ENV", process.env);
+
     request(url, function (error, response, body) {
 
         if (!error && response.statusCode == 200) {
