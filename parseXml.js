@@ -32,21 +32,6 @@ var cleanText = function(album) {
 };
 
 
-// var xml = function (market, article, entries) {
-
-// 	var url = createURL(market, article, entries);
-// 	request(url, function (error, response, body) {
-// 		if (!error && response.statusCode == 200) {
-// 		    parseString(body, function (err, result) {
-// 		    	var data = saveList(result, market, article, entries);
-// 		    	console.log("parseString", data);
-// 		    	console.log("................");
-// 		    	// return data;
-// 		    	return "ciao";
-// 			});
-// 		};
-//  	});
-// };	    
 
 var saveList = function (result, market, article, entries) {
 
