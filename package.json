@@ -1,0 +1,14 @@
+{
+  "name": "itunes",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "request": "^2.51.0",
+    "xml2js": "^0.4.4",
+    "ejs": "2.3.1"
+  },
+   "engines": {
+    "node": "v0.10.35"
+  }
+}
