@@ -38,20 +38,23 @@ app.post('/', function(req, res) {
                 // Inserire codice per salvare il file
                 var fileName = dir + "/log/" + product + "_" + market.toUpperCase() + ".csv";
                 console.log("File name", fileName);
-                fs.appendFile(fileName, data, function(e){
-                    console.log("parseString", data);
-                    console.log("................");
-                    res.sendFile(fileName,  function (err) {
-                        if (err) {
-                            console.log(err);
-                            res.status(err.status).end();
-                        }
-                        else {
-                          console.log('Sent:', fileName);
-                        }
-                    });
+                res.setHeader('Content-disposition', 'attachment; filename=itunes.csv');
+                res.set('Content-Type', 'text/csv');
+                res.send(data);
+                // fs.appendFile(fileName, data, function(e){
+                //     console.log("parseString", data);
+                //     console.log("................");
+                //     res.sendFile(fileName,  function (err) {
+                //         if (err) {
+                //             console.log(err);
+                //             res.status(err.status).end();
+                //         }
+                //         else {
+                //           console.log('Sent:', fileName);
+                //         }
+                //     });
 
-                })
+                // })
                 
             });
         };
