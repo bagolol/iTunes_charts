@@ -2,7 +2,7 @@ var http = require('http');
 var parseString = require('xml2js').parseString;
 var request = require('request');
 var fs = require('fs');
-var min = require('minimist')(process.argv.slice(2));
+
 
 
 
