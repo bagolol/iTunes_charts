@@ -5,6 +5,7 @@ var xml = require('./parseXml.js');
 var request = require('request');
 var parseString = require('xml2js').parseString;
 var fs = require('fs');
+var dir = process.cwd() || __dirname;
 
 
 
@@ -33,7 +34,7 @@ app.post('/', function(req, res) {
 
                 var data = xml.saveList(result, market, product, entries);
                 // Inserire codice per salvare il file
-                var fileName = __dirname + product + "_" + market.toUpperCase() + ".csv" 
+                var fileName = dir + "/tmp/" + product + "_" + market.toUpperCase() + ".csv" 
                 fs.appendFile(fileName, data, function(e){
                     console.log("parseString", data);
                     console.log("................");
