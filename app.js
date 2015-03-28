@@ -11,6 +11,7 @@ var fs = require('fs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
+app.set('port', (process.env.PORT || 8080));
 
 
 app.get('/', function(req, res) {  
@@ -57,6 +58,6 @@ app.post('/', function(req, res) {
     
 });
 
-app.listen(8080, function () {
-    console.log("server listening on port 8080")
+app.listen(app.get('port'), function () {
+    console.log("server listening on port" + app.get('port'));
 });
