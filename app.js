@@ -34,7 +34,7 @@ app.post('/', function(req, res) {
 
                 var data = xml.saveList(result, market, product, entries);
                 // Inserire codice per salvare il file
-                var fileName = dir + "../tmp/" + product + "_" + market.toUpperCase() + ".csv";
+                var fileName = dir + "/../tmp/" + product + "_" + market.toUpperCase() + ".csv";
                 console.log("File name", fileName);
                 fs.appendFile(fileName, data, function(e){
                     console.log("parseString", data);
