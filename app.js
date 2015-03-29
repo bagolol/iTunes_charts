@@ -37,6 +37,7 @@ app.post('/', function(req, res) {
                 console.log("File name", fileName);
                 res.setHeader('Content-disposition', 'attachment; filename=' + fileName);
                 res.set('Content-Type', 'text/csv');
+                res.charset = 'binary';
                 res.send(data);         
             });
         };
