@@ -34,7 +34,8 @@ var cleanText = function(album) {
 
 
 var saveList = function (result, market, article, entries) {
-
+	var text = "";
+	var header = "artist, artist url, item, item url, genre, release date";
 	var v = ",";
 	for (var i = 0; i < entries; i++) {
 
@@ -50,10 +51,9 @@ var saveList = function (result, market, article, entries) {
 		if (artist) {
 			artistURL = f['im:artist'][0]["$"]["href"].replace("?uo=2", "?ls=1");
 		}
-
 		var lista = artist + v + artistURL + v + clean[1] + v + albumURL + v + genre + v + clean[0] + "\n";
 		var file = "/Users/rocco/desktop/liste/"+ article + "_" + market.toUpperCase() + ".csv"	
-		var text = text + lista;
+		text = header + text + lista;
 	};
 	// console.log(text);
 	return text;
