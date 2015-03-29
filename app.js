@@ -35,7 +35,7 @@ app.post('/', function(req, res) {
                 var data = xml.saveList(result, market, product, entries);
                 var fileName = product + "_" + market.toUpperCase() + ".csv";
                 console.log("File name", fileName);
-                res.setHeader('Content-disposition', 'attachment; filename=fileName');
+                res.setHeader('Content-disposition', 'attachment; filename=' + fileName);
                 res.set('Content-Type', 'text/csv');
                 res.send(data);         
             });
