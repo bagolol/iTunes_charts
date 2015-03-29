@@ -53,9 +53,9 @@ var saveList = function (result, market, article, entries) {
 		}
 		var lista = artist + v + artistURL + v + clean[1] + v + albumURL + v + genre + v + clean[0] + "\n";
 		var file = "/Users/rocco/desktop/liste/"+ article + "_" + market.toUpperCase() + ".csv"	
-		text = header + text + lista;
+		text = text + lista;
 	};
-	// console.log(text);
+	text = header + "\n" + text;
 	return text;
 };
 

@@ -27,41 +27,20 @@ app.post('/', function(req, res) {
     
     var url = xml.createURL(market, product, entries);
 
-    console.log("App ENV", process.env);
-
     request(url, function (error, response, body) {
 
         if (!error && response.statusCode == 200) {
             parseString(body, function (err, result) {
 
                 var data = xml.saveList(result, market, product, entries);
-                // Inserire codice per salvare il file
-                var fileName = dir + "/log/" + product + "_" + market.toUpperCase() + ".csv";
+                var fileName = product + "_" + market.toUpperCase() + ".csv";
                 console.log("File name", fileName);
-                res.setHeader('Content-disposition', 'attachment; filename=itunes.csv');
+                res.setHeader('Content-disposition', 'attachment; filename=fileName');
                 res.set('Content-Type', 'text/csv');
-                res.send(data);
-                // fs.appendFile(fileName, data, function(e){
-                //     console.log("parseString", data);
-                //     console.log("................");
-                //     res.sendFile(fileName,  function (err) {
-                //         if (err) {
-                //             console.log(err);
-                //             res.status(err.status).end();
-                //         }
-                //         else {
-                //           console.log('Sent:', fileName);
-                //         }
-                //     });
-
-                // })
-                
+                res.send(data);         
             });
         };
     });
-
-    // var fileName = 
-    // console.log(fileName);
     
 });
 
