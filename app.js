@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.set('port', (process.env.PORT || 8080));
 
 
-app.get('/', function(req, res) {  
+app.get('/', function(req, res) {
   res.render('index', { title: 'The index page!' })
 });
 
@@ -24,7 +24,7 @@ app.post('/', function(req, res) {
     var market = req.body.market;
     var product = req.body.product;
     var entries = req.body.entries;
-    
+
     var url = xml.createURL(market, product, entries);
 
     request(url, function (error, response, body) {
@@ -38,11 +38,11 @@ app.post('/', function(req, res) {
                 res.setHeader('Content-disposition', 'attachment; filename=' + fileName);
                 res.set('Content-Type', 'text/csv');
                 res.charset = 'binary';
-                res.send(data);         
+                res.send(data);
             });
         };
     });
-    
+
 });
 
 app.listen(app.get('port'), function () {
